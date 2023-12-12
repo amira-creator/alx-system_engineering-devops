@@ -1,28 +1,28 @@
 #!/usr/bin/python3
-"""Module for task 2"""
+"""Script that returns top 10 hot posts of a subreddit"""
+import requests
+after = None
 
 
-def recurse(subreddit, hot_list=[], count=0, after=None):
-    """Queries the Reddit API and returns all hot posts
-    of the subreddit"""
-    import requests
+def recurse(subreddit, hot_list=[]):
+    """Recursive function that returns a list of top posts"""
+    global after
 
-    sub_info = requests.get("https://www.reddit.com/r/{}/hot.json"
-                            .format(subreddit),
-                            params={"count": count, "after": after},
-                            headers={"User-Agent": "My-User-Agent"},
+    headers = {'User-Agent': 'selBot/2.1'}
+    URL = f'https://www.reddit.com/r/{subreddit}/hot.json'
+    params = {'after': after}
+    response = requests.get(URL, params=params, headers=headers,
                             allow_redirects=False)
-    if sub_info.status_code >= 400:
-        return None
 
-    hot_l = hot_list + [child.get("data").get("title")
-                        for child in sub_info.json()
-                        .get("data")
-                        .get("children")]
+    if response.status_code == 200:
+        after_data = response.json().get("data").get("after")
+        if after_data is not None:
+            after = after_data
+            recurse(subreddit, hot_list)
 
-    info = sub_info.json()
-    if not info.get("data").get("after"):
-        return hot_l
-
-    return recurse(subreddit, hot_l, info.get("data").get("count"),
-                   info.get("data").get("after"))
+        titles = response.json().get("data").get("children")
+        for title in titles:
+            hot_list.append(title.get("data").get("title"))
+        return hot_list
+    else:
+        return (None)
