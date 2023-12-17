@@ -36,5 +36,3 @@ In the last hours, we've conducted an internal review and analysis of the outage
 * Fix all typos in configuration files before deploying.
 * Programatically enforce staged rollouts of all configuration changes.
 * Improve process for auditing all high-risk configuration options.
-
-Alx is committed to continually and quickly improving our technology and operational processes to prevent outages. We appreciate your patience and again apologize for the impact to you, your users and your organization. We thank you for your business and continued support.
