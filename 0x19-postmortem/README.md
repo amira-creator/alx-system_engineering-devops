@@ -36,3 +36,5 @@ In the last hours, we've conducted an internal review and analysis of the outage
 * Fix all typos in configuration files before deploying.
 * Programatically enforce staged rollouts of all configuration changes.
 * Improve process for auditing all high-risk configuration options.
+
+![Screenshot from 2023-08-08 20-08-30](https://github.com/samuelselasi/alx-system_engineering-devops/assets/85158665/4881937f-2b1d-4809-9d86-4296739e4ced)
