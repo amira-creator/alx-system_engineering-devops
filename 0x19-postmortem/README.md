@@ -3,17 +3,17 @@
 ## Tasks
 ### Summary
 
-From 6:00 AM to 7:50 PM GMT, reuests to Holberton API hosted on [0x17-web_stack_debugging_3](../0x17-web_stack_debugging_3) sandbox resulted in 500 error response messages. Any applications that rely on this API returned errors or had reduced functionality. At its peak, the issue affected 100% of traffic to this API infrastructure. The root cause of this outage was a typing mistake in configuration files that caused to API to malfunction.
+From 5:00 AM to 6:50 PM GMT, reuests to Holberton API hosted on [0x17-web_stack_debugging_3](../0x17-web_stack_debugging_3) sandbox resulted in 500 error response messages. Any applications that rely on this API returned errors or had reduced functionality. At its peak, the issue affected 100% of traffic to this API infrastructure. The root cause of this outage was a typing mistake in configuration files that caused to API to malfunction.
 
 ### Timeline (all GMT)
 
-* 5:45 AM: Configuration push behins
-* 5:46 AM: Outage begins
-* 6:00 AM: Pagers alerted teams(Alx released [0x17-web_stack_debugging_3](../0x17-web_stack_debugging_3))
-* 7:30 PM: Check status of Aache2(running)
-* 7:40 PM: Check PHP configuration files and fix wp-settings.php
-* 7:49 PM: Server restarts begin
-* 7:50 PM: 100% of traffic back online
+* 4:45 AM: Configuration push behins
+* 4:46 AM: Outage begins
+* 5:00 AM: Pagers alerted teams(Alx released [0x17-web_stack_debugging_3](../0x17-web_stack_debugging_3))
+* 6:30 PM: Check status of Aache2(running)
+* 6:40 PM: Check PHP configuration files and fix wp-settings.php
+* 6:49 PM: Server restarts begin
+* 6:50 PM: 100% of traffic back online
 
 ### Root Cause & Resolution
 #### Resolution
@@ -22,11 +22,11 @@ At 5:45 AM GMT, a configuration change was inadvertently released to our product
 
 #### Resolution
 
-At 6:00 AM GMT, the monitoring systems alerted our engineers who investigated and escalated the issue. By 7:40: PM, the incident response team identified that the monitoring system was exacerbating the problem caused by this typo.
+At 5:00 AM GMT, the monitoring systems alerted our engineers who investigated and escalated the issue. By 6:40: PM, the incident response team identified that the monitoring system was exacerbating the problem caused by this typo.
 
-At 7:30 PM, we attempted to restart Apache2 and it was running alrigh. This made us check server logs with ltrace to discover the typo in php configuration files. Since the file was big we could not risk fixing only one line and leaving potential other typos. So we used puppet script to replace any occurence of the typo in the entire file with the right word.
+At 6:30 PM, we attempted to restart Apache2 and it was running alrigh. This made us check server logs with ltrace to discover the typo in php configuration files. Since the file was big we could not risk fixing only one line and leaving potential other typos. So we used puppet script to replace any occurence of the typo in the entire file with the right word.
 
-The jobs started to slowly recover, and we determined the overall recovery would be faster by a resatrt of the API infrastructure. By 7:49PM, 90% of traffix was restored and 100% of traffic was routed to the API infrastructure at 7:50 PM.
+The jobs started to slowly recover, and we determined the overall recovery would be faster by a resatrt of the API infrastructure. By 6:49PM, 90% of traffix was restored and 100% of traffic was routed to the API infrastructure at 6:50 PM.
 
 ### Corrective & Preventive Measures
 
