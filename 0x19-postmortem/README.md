@@ -1,11 +1,6 @@
-# 0x19. Postmortem
-### `DevOps` `SysAdmin`
+# postmortem
 
 ## Tasks
-[0. My first postmortem](./README.md)
-
-![pQ9YzVY](https://github.com/samuelselasi/alx-system_engineering-devops/assets/85158665/8c9b905c-e988-4709-9af1-2e4fba5287da)
-
 ### Summary
 
 From 6:00 AM to 7:50 PM GMT, reuests to Holberton API hosted on [0x17-web_stack_debugging_3](../0x17-web_stack_debugging_3) sandbox resulted in 500 error response messages. Any applications that rely on this API returned errors or had reduced functionality. At its peak, the issue affected 100% of traffic to this API infrastructure. The root cause of this outage was a typing mistake in configuration files that caused to API to malfunction.
@@ -43,5 +38,3 @@ In the last hours, we've conducted an internal review and analysis of the outage
 * Improve process for auditing all high-risk configuration options.
 
 Alx is committed to continually and quickly improving our technology and operational processes to prevent outages. We appreciate your patience and again apologize for the impact to you, your users and your organization. We thank you for your business and continued support.
-
-![Screenshot from 2023-08-08 20-08-30](https://github.com/samuelselasi/alx-system_engineering-devops/assets/85158665/4881937f-2b1d-4809-9d86-4296739e4ced)
