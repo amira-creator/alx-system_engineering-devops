@@ -61,8 +61,6 @@ server {
 
         server_name _;
         add_header X-Served-By $hostname;
-        rewrite ^/redirect_me https://onepunchcoder.medium.com permanent;
-        rewrite ^/redirect_me https://www.onepunchcoder.medium.com permanent;
 
         location / {
                 # First attempt to serve request as file, then
